@@ -78,6 +78,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { listMenu } from '@/constants/menu'
 
 export default {
   name: 'New',
@@ -94,62 +95,9 @@ export default {
   },
   data () {
     return {
+      listMenu,
       loading: false,
       compledMenu: false,
-      listMenu: [ {
-        entradas: [
-          {
-            id: 1,
-            description: 'sopa de algo'
-          },
-          {
-            id: 2,
-            description: 'sopa de otra cosa'
-          },
-          {
-            id: 3,
-            description: 'mas sopa'
-          }
-        ],
-        guisados: [
-          {
-            id: 1,
-            description: 'Tacos'
-          },
-          {
-            id: 2,
-            description: 'Tortas'
-          },
-          {
-            id: 3,
-            description: 'Tamal'
-          }
-        ],
-        postres: [
-          {
-            id: 1,
-            description: 'gelatina'
-          },
-          {
-            id: 2,
-            description: 'pan'
-          }
-        ],
-        bebidas: [
-          {
-            id: 1,
-            description: 'Agua'
-          },
-          {
-            id: 2,
-            description: 'Refresco'
-          },
-          {
-            id: 3,
-            description: 'Cerveza'
-          }
-        ]
-      }],
       entradasId: [],
       guisadosId: [],
       postresId: [],

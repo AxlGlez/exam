@@ -22,11 +22,6 @@ export default [
         component: () => import('@/views/ordenes/Orders.vue')
       },
       {
-        path: 'ordenes/detalle/:orderId',
-        name: 'detalle-orden',
-        component: () => import('@/views/ordenes/OrdersDetail.vue')
-      },
-      {
         path: 'ordenes/add/:customerId',
         name: 'nueva-orden',
         component: () => import('@/views/ordenes/NewOrder.vue')

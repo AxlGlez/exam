@@ -57,5 +57,24 @@ export default {
       }
     }
     return resp
+  },
+  async setEditOrder ({ data, orderId }) {
+    const response = await fetch(`${API_URL}/admin/edit/order/${orderId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: sessionStorage.getItem('access-token')
+      },
+      body: JSON.stringify(data)
+    })
+
+    let resp = await response.json()
+    if (!response.ok) {
+      this.isLoading = false
+      if (response.status === 400) {
+        return Promise.reject(new Error(resp.error))
+      }
+    }
+    return resp
   }
 }

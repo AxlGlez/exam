@@ -75,6 +75,7 @@ export default {
       pages: '',
       loading: false,
       chooseCustomer: false,
+      orderId: '',
       orderList: [],
       columnsData: [
         // { id: 'id',
@@ -102,7 +103,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getOrdersList', 'setDeleteOrder']),
+    ...mapActions(['getOrdersList', 'setDeleteOrder', 'setEditOrder']),
     chooseCustomerActive () {
       this.chooseCustomer = true
     },
@@ -119,7 +120,8 @@ export default {
           this.loading = false
         })
     },
-    changeEditOrder () {
+    changeEditOrder (orderId) {
+      this.orderId = orderId
       this.editOrder = !this.editOrder
     },
     orderDelet (data) {
@@ -137,7 +139,18 @@ export default {
         })
     },
     orderEdit (data) {
-      console.log('data', data)
+      this.setEditOrder({ data, orderId: this.orderId })
+        .then(resp => {
+          if (resp) {
+            this.getOrdersList({ page: this.page, size: DEFAULT_DISPLAY_SIZE })
+              .then(resp => {
+                this.orderList = resp.orders
+                this.pages = resp.totalPages
+                this.loading = false
+              })
+            this.editOrder = !this.editOrder
+          }
+        })
     }
   },
   beforeMount () {

@@ -31,7 +31,6 @@ export default {
     })
 
     let resp = await response.json()
-    console.log('resp', resp)
     if (!response.ok) {
       this.isLoading = false
       if (response.status === 400) {

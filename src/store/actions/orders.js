@@ -37,5 +37,19 @@ export default {
       dispatch('addTemporalNotification', { type: 'danger', message: error.message })
       return false
     }
+  },
+  async setEditOrder ({ dispatch }, { data, orderId }) {
+    try {
+      const { success, message } = await api.setEditOrder({ data, orderId })
+      if (success) {
+        return success
+      } else {
+        dispatch('addTemporalNotification', { type: 'danger', message })
+        return false
+      }
+    } catch (error) {
+      dispatch('addTemporalNotification', { type: 'danger', message: error.message })
+      return false
+    }
   }
 }
