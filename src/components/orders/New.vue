@@ -63,7 +63,7 @@
           <div class="column is-12 has-text-right">
             <button
               @click="newOrder"
-              class="button is-link"
+              class="button is-info"
               :class="{'is-loading': loading}"
             >
               Generar orden

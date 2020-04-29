@@ -27,10 +27,11 @@
         <div class="level-item">
           <div class="control has-text-centered-mobile">
              <div
-              class="button has-text-centered-mobile"
+              class="button has-text-centered-mobile is-info is-outlined"
               @click="showAddUserModal"
             >
               Agregar Cliente
+              <i class="material-icons icon-action">person_add</i>
             </div>
           </div>
         </div>
@@ -89,15 +90,15 @@ export default {
       columnsData: [
         { id: 'name',
           header: 'Nombre',
-          class: 'column-mobile',
+          class: 'column-mobile has-text-centered',
           accessor: (row) => `${row.name} ${row.last_name} ${row.second_last_name}`
         },
-        { id: 'email', header: 'E-mail', class: 'column-mobile' },
-        { id: 'age', header: 'Edad', class: 'column-mobile' },
+        { id: 'email', header: 'E-mail', class: 'column-mobile has-text-centered' },
+        { id: 'age', header: 'Edad', class: 'column-mobile has-text-centered' },
         {
           id: 'created_at',
           header: 'Fecha de Registro',
-          class: 'column-mobile is-hidden-touch',
+          class: 'column-mobile is-hidden-touch has-text-centered',
           accessor: (row) => moment(row.created_at).format('DD-MM-YYYY')
         },
         { id: 'config', name: 'config', header: 'Acciones', class: 'column-mobile has-text-centered' }
@@ -198,5 +199,9 @@ export default {
   .icon-action {
     cursor: pointer;
     color: #039DA1;
+  }
+  .icon-action:hover{
+    cursor: pointer;
+    color: rgb(5, 105, 109);
   }
 </style>

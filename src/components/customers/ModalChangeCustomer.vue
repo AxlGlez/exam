@@ -28,14 +28,14 @@
    <footer class="modal-card-foot">
       <router-link
         :disabled="loading"
-        class="button"
+        class="button is-outlined"
         to="/clientes"
       >
         nuevo cliente
       </router-link>
       <router-link
         v-if="customerId && this.count.count < 3"
-        class="button"
+        class="button is-info"
         :class="{'is-loading': loading}"
         :to="`/ordenes/add/${customerId}`"
       >

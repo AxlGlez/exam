@@ -20,7 +20,7 @@
       </div>
       <div class="level-right">
         <div class="level-item">
-          <div class="control has-text-centered-mobile button" @click="chooseCustomerActive">
+          <div class="control has-text-centered-mobile button is-info is-outlined" @click="chooseCustomerActive">
               Ordenar
               <i class="material-icons icon-action">add_shopping_cart</i>
           </div>
@@ -84,7 +84,7 @@ export default {
         // },
         { id: 'name',
           header: 'Cliente',
-          class: 'column-mobile'
+          class: 'column-mobile has-text-centered'
         },
         { id: 'descripcion',
           header: 'Pedidos',
@@ -94,7 +94,7 @@ export default {
         {
           id: 'created_at',
           header: 'Fecha de creación',
-          class: 'column-mobile is-hidden-touch',
+          class: 'column-mobile is-hidden-touch has-text-centered',
           accessor: (row) => moment(row.created_at).format('DD-MM-YYYY')
         },
         { id: 'config', name: 'config', header: 'Acciones', class: 'column-mobile has-text-centered' }
@@ -172,6 +172,10 @@ export default {
   .icon-action {
     cursor: pointer;
     color: #039DA1;
+  }
+  .icon-action:hover{
+    cursor: pointer;
+    color: rgb(5, 105, 109);
   }
   .icon-danger {
     cursor: pointer;

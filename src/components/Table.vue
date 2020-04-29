@@ -105,9 +105,9 @@ export default {
   }
   .table th {
     text-align: center;
-    background-color: #2E3133;
+    background-color: #283e53;
     color: #f5fcff !important;
-    border: #EE7C34;
+    border: #283e53;
     padding: 10px 0;
   }
 

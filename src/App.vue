@@ -35,7 +35,7 @@ export default {
     --primary-color: #32c3e7;
     --primary-color-light: #658abf;
     --primary-color-dark: #0ca7ce;
-    --secondary-color: #191a1b;
+    --secondary-color: #283e53;
   }
 
   html,

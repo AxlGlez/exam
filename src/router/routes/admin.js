@@ -9,12 +9,7 @@ export default [
       {
         path: '/',
         name: 'first-view',
-        component: () => import('@/views/Dashboard.vue')
-      },
-      {
-        path: 'dashboard',
-        name: 'dashboard',
-        component: () => import('@/views/Dashboard.vue')
+        component: () => import('@/views/ordenes/Orders.vue')
       },
       {
         path: 'ordenes',

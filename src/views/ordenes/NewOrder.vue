@@ -8,7 +8,7 @@
       </div>
       <div class="level-right">
         <div class="level-item">
-          <router-link class="button" to="/ordenes">
+          <router-link class="button is-danger is-outlined" to="/ordenes">
             Regresar
           </router-link>
         </div>
