@@ -135,6 +135,9 @@ export default {
               })
           }
         })
+    },
+    orderEdit (data) {
+      console.log('data', data)
     }
   },
   beforeMount () {

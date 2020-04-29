@@ -48,9 +48,7 @@
           slot="config"
           slot-scope="scope"
         >
-          <router-link class="has-text-centered-mobile"  :to="`/ordenes/add/${scope.row.id}`">
-            <i class="material-icons icon-action">add_shopping_cart</i>
-          </router-link>
+          <i class="material-icons icon-action" @click="reviewCustomer(scope.row.id)">add_shopping_cart</i>
           <i class="material-icons icon-action" @click="openEditCustomer(scope.row)">edit</i>
         </div>
         </base-table>
@@ -67,7 +65,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import moment from 'moment'
 
 const DEFAULT_DISPLAY_SIZE = 10
@@ -113,8 +111,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setAuthenticationValue']),
-    ...mapActions(['getCustomers', 'createCustomer', 'customerUpdate']),
+    ...mapActions(['getCustomers', 'createCustomer', 'customerUpdate', 'reviewOrderLimit', 'addTemporalNotification']),
     editActive (data) {
       let dataUpdate = {
         ...data,
@@ -131,6 +128,17 @@ export default {
             this.modalEditCustomer = false
           }
           this.loading = false
+        })
+    },
+    reviewCustomer (data) {
+      this.reviewOrderLimit(data)
+        .then(resp => {
+          this.count = resp.payload.find(e => e.count)
+          if (this.count.count >= 3) {
+            this.addTemporalNotification({ type: 'danger', message: 'El cliente ya tiene 3 ordenes en el día' })
+          } else {
+            this.$router.push(`/ordenes/add/${data}`)
+          }
         })
     },
     paginator (page) {
